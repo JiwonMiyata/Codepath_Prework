@@ -4,7 +4,7 @@ Tip Calculator is a tip calculator application for iOS.
 
 Submitted by: Jiwon Ryu
 
-Time spent: 3 hours spent in total
+Time spent: 5 hours spent in total
 
 ## User Stories
 
@@ -23,13 +23,13 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
-- Tip percentages are selected by moving slider
-- Total Amount split function - This splits the bill by number of party user selected
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-![](https://i.imgur.com/OmDXzgb.gif)
+![](https://i.imgur.com/x5uOYvc.gif)
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -39,7 +39,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [2022] [Jiwon Ryu]
+    Copyright [yyyy] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -52,3 +52,4 @@ Describe any challenges encountered while building the app.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+

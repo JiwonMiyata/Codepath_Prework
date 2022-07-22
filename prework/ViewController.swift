@@ -2,22 +2,20 @@
 //  ViewController.swift
 //  prework
 //
-//  Created by jiwon ryu on 7/20/22.
+//  Created by jiwon ryu on 7/23/22.
+
 //
 
 import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var BillAmountTextField: UITextField!
-    @IBOutlet weak var tipPercentageLabel: UILabel!
-    @IBOutlet weak var tipControl: UISlider!
-    @IBOutlet weak var partysizeControl: UISlider!
-    @IBOutlet weak var splitedAmount: UILabel!
+   
     
-    @IBOutlet weak var tipAmount: UILabel!
-    @IBOutlet weak var partySizeLabel: UILabel!
-    @IBOutlet weak var totalCalculated: UILabel!
+    @IBOutlet weak var billAmountTextField: UITextField!
+    @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var tipAmountLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,42 +24,21 @@ class ViewController: UIViewController {
 
     }
 
-    @IBAction func CalculatePressed(_ sender: Any) {
-        calculateTip()
+    @IBAction func calculateTip(_ sender: Any) {
+        //Get bill amount from text filed input
+        let bill = Double(billAmountTextField.text!) ?? 0
+        
+        //Get Total tip by multiplying tip * tipPercentatge
+        let tipPercentages = [0.15, 0.18, 0.2]
+        let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
+        let total = bill + tip
+        //Update Tip Amount Label
+        tipAmountLabel.text = String(format: "$%.2f", tip)
+        //Update Total Amount
+        totalLabel.text = String(format: "$%.2f", total)
         
     }
-    @IBAction func SplitTheBill(_ sender: Any) {
-        splitBillbyPartysize()
-    }
-    @IBAction func tipSliderChanged(_ sender: UISlider) {
 
-       tipPercentageLabel.text! = String(Int(sender.value)) + "%"
-       
-    }
     
-    @IBAction func partySizeChanged(_ sender: UISlider) {
-        partySizeLabel.text! = String(Int(sender.value))
-    }
-    
-    func calculateTip() {
-        var tipAmountCalculated = Double()
-        var total = Double()
-        if let billAmount = Double(BillAmountTextField.text!) {
-        tipAmountCalculated = billAmount * Double(tipControl.value/100)
-            total = tipAmountCalculated + Double(BillAmountTextField.text!)!
-        }
-        else {
-            tipAmountCalculated = 0
-            total = 0
-        }
-        tipAmount.text! = String(Double(round(100*tipAmountCalculated)/100))
-        totalCalculated.text! = String(Double(round(100*total)/100))
-        }
-    
-    func splitBillbyPartysize() {
-        let partySize = Int(partysizeControl.value)
-        let splitedTotal = Float(totalCalculated.text!)! / Float(partySize)
-        splitedAmount.text! = String(Double(round(100*splitedTotal)/100))
-    }
 }
 
